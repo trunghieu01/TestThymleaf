@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lop Hoc</title>
+</head>
+<body>
+<div >
+  <h2>Lop Hoc</h2>
+  <hr/>
+  <a  th:href="@{/lophoc/addView}">Them lop hoc</a>
+  <br/><br/>
+  <div>
+    <table>
+      <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr th:each="lh:${Lop}">
+        <td th:text="${lh.id}"/>
+        <td th:text="${lh.name}"/>
+        <td>
+          <a th:href="@{/hocsinh/search(lhId=${lh.id})}">View</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

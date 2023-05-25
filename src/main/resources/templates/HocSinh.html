@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoc Sinh</title>
+</head>
+<body>
+<form autocomplete="off" action="#" th:action="@{/hocsinh/add(lhId=${param.lhId})}"
+      th:object="${hs}" method="post" role="form">
+
+    <div class="form-group">
+        <label class="alert alert-danger">Name</label>
+        <input type="text" field="*{name}" name="name" placeholder="Name"
+               class="form-control input-lg"/>
+    </div>
+
+    <input type="text" field="*{lopID}" name="lopID" th:value="${param.lhId}"
+           class="form-control input-lg" hidden="hidden"/>
+    <!--      th:field="*{lh.name}"-->
+    <div class="row">
+        <div class="col-sm-3" style="float: none; margin: 0 auto;">
+            <input type="submit" class="btn btn-primary btn-block" value="ADD"/>
+        </div>
+    </div>
+
+</form>
+<a class="btn btn-danger ml-2"
+   th:href="@{/lophoc/}">Quay lại</a>
+<table class="table table-bordered table-striped">
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Action</th>
+    </thead>
+    <tbody>
+    <tr th:each="hs:${HS}">
+        <td th:text="${hs.id}"/>
+        <td th:text="${hs.name}"/>
+        <td>
+            <a class="btn btn-danger ml-2"
+               th:href="@{/hocsinh/delete(lhId=${param.lhId},id=${hs.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
