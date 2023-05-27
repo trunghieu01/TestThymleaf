@@ -19,8 +19,7 @@ public class LopHocController {
     public ModelAndView add(@Validated LopHoc lh){
         lopHocService.add(lh);
         ModelAndView model = new ModelAndView();
-        model.addObject("Lop", lopHocService.findAll());
-        model.setViewName("redirect:/lophoc/");
+        model.setViewName("redirect:/lophoc");
         return model;
     }
 
@@ -37,7 +36,7 @@ public class LopHocController {
         return model;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public ModelAndView view(){
         ModelAndView model = new ModelAndView();
         model.addObject("Lop", lopHocService.findAll());

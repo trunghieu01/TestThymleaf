@@ -22,10 +22,10 @@
             <input type="submit" class="btn btn-primary btn-block" value="ADD"/>
         </div>
     </div>
-
 </form>
-<a class="btn btn-danger ml-2"
-   th:href="@{/lophoc/}">Quay lại</a>
+
+<a th:href="@{/lophoc}">Quay lại</a>
+
 <table class="table table-bordered table-striped">
     <thead>
     <th>Id</th>
@@ -37,8 +37,7 @@
         <td th:text="${hs.id}"/>
         <td th:text="${hs.name}"/>
         <td>
-            <a class="btn btn-danger ml-2"
-               th:href="@{/hocsinh/delete(lhId=${param.lhId},id=${hs.id})}">Delete</a>
+            <a th:href="@{/hocsinh/delete(lhId=${param.lhId},id=${hs.id})}">Delete</a>
         </td>
     </tr>
     </tbody>

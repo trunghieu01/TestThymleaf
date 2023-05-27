@@ -22,8 +22,6 @@ public class HocSinhController {
     public ModelAndView add(@Validated HocSinh hs, @RequestParam String lhId) {
         hocSinhService.add(hs);
         ModelAndView model = new ModelAndView();
-        model.addObject("HS", hocSinhService.find(lhId));
-        model.addObject("ldId", lhId);
         model.setViewName("redirect:/hocsinh/search?lhId="+lhId);
         return model;
     }
@@ -32,8 +30,6 @@ public class HocSinhController {
     public ModelAndView delete(@RequestParam String id, @RequestParam String lhId) {
         hocSinhService.delete(id);
         ModelAndView model = new ModelAndView();
-        model.addObject("HS", hocSinhService.find(lhId));
-        model.addObject("ldId", lhId);
         model.setViewName("redirect:/hocsinh/search?lhId="+lhId);
         return model;
     }
